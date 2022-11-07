@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Rent.init(
     {
-      id_Rent: {
+      id_rent: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -33,10 +33,10 @@ module.exports = (sequelize, DataTypes) => {
       },
       code: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         foreignKey: true,
       },
-      Rent_date: {
+      rent_date: {
         type: DataTypes.DATE,
         allowNull: false,
       },
