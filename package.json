@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js",
-    "test": "mocha --exit",
+    "test": "nyc mocha --exit",
     "migrate": "npx sequelize-cli db:migrate"
   },
   "author": "",
@@ -33,6 +33,7 @@
     "assert": "^2.0.0",
     "chai": "^4.3.6",
     "mocha": "^10.0.0",
+    "nyc": "^15.1.0",
     "sequelize-cli": "^6.4.1",
     "supertest": "^6.2.4"
   }
