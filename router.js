@@ -9,12 +9,6 @@ const RentController = require('./controllers/RentController')
 
 router.use(bodyParser.json())
 
-
-/*
-Toda información listable debe tener un endpoint para ser listada. 
-Ej. Todas las películas, todas las películas alquiladas por un usuario, 
-todas las películas favoritas de un usuario
-*/
 // info listable 
 router.get('/movies', MovieController.getMovies); // order by title Todas las películas
 //router.get('/rents', checkLoggedUser, RentController ); // todas las películas alquiladas por un usuario
@@ -35,7 +29,7 @@ router.get("/logout", checkLoggedUser, UsersController.logout);
 
 // alquiler
 router.post('/movie', checkLoggedIn, MovieController.addMovie)
-router.put("/rent/:code", checkLoggedUser, RentController.devMovie); // tira error
+router.put("/rent/:code", checkLoggedUser, RentController.devMovie);
 router.post("/rent/:code", checkLoggedUser, RentController.rentMovie); // anda joya
 router.post('/favourite/:code', checkLoggedUser, MovieController.addFavourite)
 
