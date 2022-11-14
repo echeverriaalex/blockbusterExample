@@ -9,6 +9,11 @@ const RentController = require('./controllers/RentController')
 
 router.use(bodyParser.json())
 
+const welcome = (req, res, next) =>{
+
+    res.send("Welcome");
+}
+
 // info listable 
 router.get('/movies', MovieController.getMovies); // order by title Todas las películas
 //router.get('/rents', checkLoggedUser, RentController ); // todas las películas alquiladas por un usuario
@@ -32,6 +37,8 @@ router.post('/movie', checkLoggedIn, MovieController.addMovie)
 router.put("/rent/:code", checkLoggedUser, RentController.devMovie);
 router.post("/rent/:code", checkLoggedUser, RentController.rentMovie); // anda joya
 router.post('/favourite/:code', checkLoggedUser, MovieController.addFavourite)
+
+router.get('/', welcome);
 
 router.use(errorHandler.notFound);
 
